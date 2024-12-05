@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Features and Vision</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap">
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('images/WhatsApp Image 2024-08-21 at 2.07.15 AM.jpeg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #f0f0f0; /* Fallback color */
+            color: #333;
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: flex-end;
+            padding: 10px 20px;
+            background-color: transparent;
+            position: fixed; /* Fix the navbar at the top */
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+        }
+
+        .navbar li {
+            position: relative;
+            margin-right: 100px;
+        }
+
+        .navbar a {
+            color: #060000;
+            text-decoration: none;
+            font-size: 1.2rem;
+            padding: 2px 7px;
+            display: block;
+            background-color: #f7f6f4;
+            border-radius: 3px;
+         
+        }
+
+        .navbar a:hover {
+            background-color: #ffc400;
+            color: #000;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: rgba(0, 0, 0, 0.8);
+            min-width: 150px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+            z-index: 1;
+            border-radius: 5px;
+            top: 100%; /* Position dropdown below the button */
+            left: 0;
+        }
+
+        .dropdown-content a {
+            color: #0f0101;
+            padding: 10px 15px;
+            text-decoration: none;
+            display: block;
+            text-align: left;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffc400;
+            color: #000;
+        }
+
+        .navbar li:hover .dropdown-content {
+            display: block;
+        }
+
+        .container {
+            width: 80%;
+            margin: 70px auto 0 auto; /* Reduced margin-top to bring content up */
+            padding: 10px; /* Reduced padding */
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: #ffc400;
+            margin-top: 0;
+            margin-bottom: 30px; /* Reduced margin-bottom */
+            text-shadow: 1px 1px #000;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: #333;
+            margin: 15px 0; /* Reduced margin */
+        }
+
+        p {
+            font-family: 'Arial', sans-serif;
+            font-size: 1.2rem;
+            margin: 0 20px;
+            padding: 15px; /* Reduced padding */
+            background-color: rgba(0, 0, 0, 0.7);
+            border-radius: 10px;
+            color: #f4f4f4;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: justify;
+            line-height: 1.6;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            text-align: left;
+            display: inline-block;
+        }
+
+        li {
+            font-size: 1.2rem;
+            margin: 10px 0;
+            padding: 10px; /* Reduced padding */
+            background-color: rgba(50, 50, 50, 0.8);
+            border-radius: 10px;
+            color: #f4f4f4;
+            animation: float 5s ease-in-out infinite;
+        }
+
+        .vision {
+            margin-top: 30px; /* Reduced margin-top */
+            padding: 15px; /* Reduced padding */
+            background-color: #ffffff;
+            border-radius: 10px;
+            color: #333;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            animation: float 7s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <li>
+                <a href="index.html">Home</a>
+                <div class="dropdown-content">
+                    <a href="about.html">About</a>
+                    <a href="tree_species.html">Satellite Image</a>
+                    <a href="green-cover-estimator.html">Green Cover Prediction</a>
+                    <a href="index.html">Tree Count Detection</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="container">
+        <h1>Key Features</h1>
+        <ul>
+            <li><strong>Tree Counting Prediction:</strong> Estimates tree numbers using satellite imagery and MI.</li>
+            <li><strong>Tree Species Identification:</strong> Detects and identifies tree species from satellite images.</li>
+            <li><strong>Green Cover Analysis:</strong> Measures vegetation cover and forest health.</li>
+            <li><strong>Environmental Impact:</strong> Evaluates ecological effects of land diversion.</li>
+        </ul>
+
+        <div class="vision">
+            <h2>Our Vision</h2>
+            <p>Our vision is to revolutionize tree enumeration using satellite imagery and MI, supporting sustainable development while preserving our planet’s green cover.</p>
+        </div>
+    </div>
+    
+</body>
+</html>

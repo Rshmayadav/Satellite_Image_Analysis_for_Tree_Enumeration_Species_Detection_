@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('loginb.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #f0f0f0; /* Fallback color */
+            color: #333;
+            text-align: center;
+            overflow-x: hidden; /* Prevent horizontal scrolling */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh; /* Full viewport height */
+        }
+
+        .container {
+            background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white */
+            padding: 40px; /* Increased padding for the container */
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+            width: 400px; /* Increased width */
+            max-width: 90%; /* Responsive width */
+        }
+
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        input {
+            padding: 15px; /* Increased padding inside input fields */
+            margin: 10px 0; /* Margin for spacing between fields */
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 16px; /* Increased font size */
+        }
+
+        button {
+            padding: 15px; /* Increased padding for the button */
+            background-color: #28a745;
+            color: rgb(185, 230, 243);
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px; /* Increased font size */
+        }
+
+        button:hover {
+            background-color: #218838;
+        }
+
+        a {
+            text-align: center;
+            display: block;
+            margin-top: 15px; /* Margin for spacing below the button */
+            color: #007bff;
+            text-decoration: none;
+            font-size: 16px; /* Increased font size */
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        .error {
+            color: red;
+            text-align: center;
+            margin-top: 15px; /* Margin for spacing below the input fields */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Login</h2>
+    <form id="loginForm">
+        <input type="email" id="loginEmail" placeholder="Enter email" required>
+        <input type="password" id="loginPassword" placeholder="Enter password" required>
+        <button type="submit">Login</button>
+    </form>
+
+    <div id="error" class="error"></div>
+    <a href="register.html">Don't have an account? Register</a>
+</div>
+
+<script>
+    let registeredEmail = localStorage.getItem('registeredEmail');
+    let registeredPassword = localStorage.getItem('registeredPassword');
+
+    // Login logic
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        const loginEmail = document.getElementById('loginEmail').value;
+        const loginPassword = document.getElementById('loginPassword').value;
+
+        if (loginEmail === registeredEmail && loginPassword === registeredPassword) {
+            window.location.href = 'index.html';  // Redirect to index.html on successful login
+        } else {
+            document.getElementById('error').textContent = 'Invalid email or password!';
+        }
+    });
+</script>
+
+</body>
+</html>

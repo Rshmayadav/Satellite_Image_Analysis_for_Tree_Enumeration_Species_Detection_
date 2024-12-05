@@ -1,0 +1,85 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    position: relative; /* Required for positioning the floating image */
+}
+
+header {
+    background-color: rgba(0, 0, 0, 0.564); /* Faint black with some transparency */
+    color: white;
+    text-align: center;
+    padding: 1rem;
+}
+
+
+nav {
+    background-color: #38250f86;
+    color: white;
+    padding: 1rem;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+/* Update this line to change hover color */
+nav ul li a:hover {
+    background-color: #0a815386; /* New hover color, change to your desired color */
+}
+
+section {
+    padding: 2rem;
+    text-align: center;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 1rem;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Floating Image Styles */
+.floating-image {
+    position: fixed; /* Fixed positioning to keep it in view */
+    top: 0;
+    left: 0;
+    width: 100vw; /* Full viewport width */
+    height: 100vh; /* Full viewport height */
+    object-fit: cover; /* Ensure the image covers the entire screen */
+    z-index: -1; /* Place the image behind other content */
+    animation: float 10s ease-in-out infinite; /* Apply floating animation */
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10%); /* Adjust floating range */
+    }
+    100% {
+        transform: translateY(0);
+    }
+}

@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Map TreeSense</title>
+    <style>
+        /* Basic styling */
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        #map {
+            height: 400px;
+            width: 80%;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+        }
+        #output {
+            margin-top: 20px;
+            padding: 20px;
+            background-color: #fff;
+            border: 2px solid #ddd;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        #croppedImage {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+        }
+        #locationInfo p {
+            margin: 5px 0;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Draw Your Map Boundary</h1>
+    <div id="map"></div>
+    <div id="output">
+        <h2>Cropped Image</h2>
+        <img id="croppedImage" src="" alt="Cropped Image">
+        <div id="locationInfo"></div>
+    </div>
+
+    <script>
+        function initMap() {
+            const map = new google.maps.Map(document.getElementById('map'), {
+                center: { lat: 23.2599, lng: 77.4126 }, // Bhopal center
+                zoom: 12,
+            });
+
+            let currentRectangle = null;
+
+            const drawingManager = new google.maps.drawing.DrawingManager({
+                drawingMode: google.maps.drawing.OverlayType.RECTANGLE,
+                drawingControl: true,
+                drawingControlOptions: {
+                    position: google.maps.ControlPosition.TOP_CENTER,
+                    drawingModes: ['rectangle'],
+                },
+            });
+            
+            drawingManager.setMap(map);
+
+            google.maps.event.addListener(drawingManager, 'overlaycomplete', function(event) {
+                if (currentRectangle) {
+                    currentRectangle.setMap(null);
+                }
+                currentRectangle = event.overlay;
+
+                const bounds = currentRectangle.getBounds();
+
+                // Directly fetch the image from Google Maps
+                const staticMapUrl = `https://maps.googleapis.com/maps/api/staticmap?center=${bounds.getCenter().lat()},${bounds.getCenter().lng()}&zoom=15&size=640x640&path=fillcolor:transparent|${bounds.getNorthEast().lat()},${bounds.getNorthEast().lng()}|${bounds.getNorthEast().lat()},${bounds.getSouthWest().lng()}|${bounds.getSouthWest().lat()},${bounds.getSouthWest().lng()}|${bounds.getSouthWest().lat()},${bounds.getNorthEast().lng()}&key=AIzaSyCsZSm3Y5iPQ_gj_UIJ_dKY_cbCvfvYciQ`;
+
+                document.getElementById('croppedImage').src = staticMapUrl;
+                document.getElementById('locationInfo').innerHTML = `<p>Center Latitude: ${bounds.getCenter().lat()}</p><p>Center Longitude: ${bounds.getCenter().lng()}</p><p>Zoom Level: 15</p>`;
+            });
+        }
+    </script>
+
+    <!-- Replace 'YOUR_NEW_API_KEY' with your new API key -->
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCsZSm3Y5iPQ_gj_UIJ_dKY_cbCvfvYciQ&libraries=drawing&callback=initMap"></script>
+</body>
+</html>
